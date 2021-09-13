@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "calculadora",
+    "slug": "calculadora",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#e6eced"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.joaoovittor.calculadora"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#e6eced"
+      },
+      "package": "com.joaoovittor.calculadora"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
