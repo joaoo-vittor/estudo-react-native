@@ -11,6 +11,9 @@ import {
   Image,
   Animated,
 } from 'react-native';
+import { 
+  SharedElement,
+} from 'react-native-shared-element';
 import data from '../../data/locations';
 import { sizesTheme } from '../../config/theme';
 const { ITEM_WIDTH, ITEM_HEIGHT, RADIUS, SPACING, FULL_SIZE } = sizesTheme;
@@ -57,40 +60,49 @@ export const List = ({ navigation }) => {
               }}
               style={styles.itemContainer}
             >
-              <View 
-                style={[
-                  StyleSheet.absoluteFillObject, 
-                  { 
-                    overflow: 'hidden',
-                    borderRadius: RADIUS
-                  }
-                ]}
+              <SharedElement
+                id={`item.${item.key}.photo`}
+                style={[StyleSheet.absoluteFillObject]}
               >
-                <Animated.Image 
-                  source={{ uri: item.image }} 
+                <View 
                   style={[
-                    StyleSheet.absoluteFillObject,
+                    StyleSheet.absoluteFillObject, 
                     { 
-                      resizeMode: 'cover',
-                      transform: [
-                        { scale }
-                      ]
+                      overflow: 'hidden',
+                      borderRadius: RADIUS
                     }
                   ]}
-                />
-              </View>
-              <Animated.Text 
-                style={[
-                  styles.location,
-                  {
-                    transform: [
-                      { translateX }
-                    ]
-                  }
-                ]} 
+                >
+                  <Animated.Image 
+                    source={{ uri: item.image }} 
+                    style={[
+                      StyleSheet.absoluteFillObject,
+                      { 
+                        resizeMode: 'cover',
+                        transform: [
+                          { scale }
+                        ]
+                      }
+                    ]}
+                  />
+                </View>
+              </SharedElement>
+              <SharedElement
+                id={`item.${item.key}.location`}
               >
-                {item.location}
-              </Animated.Text>
+                <Animated.Text 
+                  style={[
+                    styles.location,
+                    {
+                      transform: [
+                        { translateX }
+                      ]
+                    }
+                  ]} 
+                >
+                  {item.location}
+                </Animated.Text>
+              </SharedElement>
               <View style={styles.daysContainer}>
                 <Text style={styles.daysValue}>{item.numberOfDays}</Text>
                 <Text style={styles.daysLabel}>days</Text>
@@ -122,8 +134,8 @@ const styles = StyleSheet.create({
     width: ITEM_WIDTH * 0.8,
     textTransform: 'uppercase',
     position: 'absolute',
-    top: SPACING,
-    left: SPACING,
+    top: SPACING * 2,
+    left: SPACING * 2,
   },
   daysContainer: {
     position: 'absolute',
