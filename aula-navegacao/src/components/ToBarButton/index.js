@@ -13,8 +13,8 @@ export const ToBarButton = ({ item, onPress, accessibilityState }) => {
     >
       <Icon 
         type={item.type} 
-        name={item.activeIcon}
-        color={Colors.primary}
+        name={focused ? item.activeIcon : item.inActiveIcon}
+        color={Colors.black}
         size={35}
       />
     </TouchableOpacity>

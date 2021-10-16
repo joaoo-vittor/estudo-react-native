@@ -13,7 +13,7 @@ import { sizeTheme } from '../../common/GlobalStyle';
 
 const { FULL_SIZE, RADIUS, CARD_HEIGHT, CARD_WIDTH, SPACING } = sizeTheme;
 
-export const Two = ({ navigation }) => {
+export const Training = ({ navigation }) => {
   return (
     <View
       style={{
@@ -43,7 +43,7 @@ export const Two = ({ navigation }) => {
           return (
             <TouchableOpacity
               activeOpacity={0.7}
-              onPress={() => navigation.push('TowDetails', { item })}
+              onPress={() => navigation.push('TrainingDetails', { item })}
               style={styles.cardContainer}
             >
               <View

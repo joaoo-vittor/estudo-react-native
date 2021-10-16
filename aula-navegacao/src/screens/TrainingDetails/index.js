@@ -1,5 +1,5 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Text, 
   View,
@@ -13,12 +13,14 @@ import {
 import { sizeTheme, width, height } from '../../common/GlobalStyle';
 import { Icon, Icons } from '../../components/Icons';
 import { GoBackButton } from '../../components/GoBackButton';
+import { Countdown } from '../../components/Countdown';
 import { Colors } from '../../constants/Colors'
 
 const { FULL_SIZE, RADIUS, CARD_HEIGHT, CARD_WIDTH, SPACING } = sizeTheme;
 
-export const TowDetails = (props) => {
+export const TrainingDetails = (props) => {
   const { route: { params: { item } }, navigation } = props;
+  const [stopTime, setStopTime] = useState(false);
 
   return (
     <View
@@ -28,7 +30,7 @@ export const TowDetails = (props) => {
     >
       <Image 
         source={item.pathImage}
-        blurRadius={2.5}
+        blurRadius={10}
         style={[
           StyleSheet.absoluteFillObject,
           {
@@ -42,7 +44,7 @@ export const TowDetails = (props) => {
           flex: 2,
         }}
       >
-        <GoBackButton navigation={navigation} />
+        <GoBackButton navigation={navigation} setStopTime={setStopTime} />
 
         <Text
           style={styles.textDay}
@@ -50,84 +52,9 @@ export const TowDetails = (props) => {
           {item.day}
         </Text>
       </View>
-      <View 
-        style={{
-          flex: 1.5,
-          padding: SPACING * 2.3
-        }}
-      >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <Text
-            style={styles.textTime}
-          >
-            00:00:00
-          </Text>
-        </View>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}
-        >
-          <TouchableOpacity
-            style={styles.btnTime}
-          >
-            <Text
-              style={styles.btnTimeText}
-            >
-              Start
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.btnTime}
-          >
-            <Text
-              style={styles.btnTimeText}
-            >
-              Pause
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.btnTime}
-          >
-            <Text
-              style={styles.btnTimeText}
-            >
-              Stop
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            flex: 0.8,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-            <TouchableOpacity
-              style={[
-                styles.btnTime,
-                {
-                  width: width * 0.87
-                }
-              ]}
-            >
-              <Text
-                style={styles.btnTimeText}
-              >
-                Descanço
-              </Text>
-            </TouchableOpacity>
-        </View>
-      </View>
+      
+      <Countdown stopTime={stopTime} />
+
       <View
         style={{
           flex: 0.2,

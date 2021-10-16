@@ -6,8 +6,8 @@ import {
 } from '@react-navigation/stack';
 
 import { One } from '../screens/One';
-import { Two } from '../screens/Two';
-import { TowDetails } from '../screens/TwoDetails';
+import { Training } from '../screens/Training';
+import { TrainingDetails } from '../screens/TrainingDetails';
 import { ToBar } from '../navigation/ToBar';
 
 const Stack = createStackNavigator();
@@ -36,8 +36,8 @@ export const RootStack = () => {
         }}
       />
       <Stack.Screen 
-        name="TowDetails"
-        component={TowDetails}
+        name="TrainingDetails"
+        component={TrainingDetails}
         options={{
           headerShown: false
         }}
@@ -50,8 +50,8 @@ export const RootStack = () => {
         }}
       />
       <Stack.Screen 
-        name="Two"
-        component={Two}
+        name="Training"
+        component={Training}
         options={{
           headerShown: false
         }}

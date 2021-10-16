@@ -3,11 +3,17 @@ import { StatusBar, TouchableOpacity, View } from 'react-native';
 import { Icon, Icons } from '../Icons';
 import { SPACING } from '../../common/GlobalStyle';
 
-export const GoBackButton = ({ navigation }) => {
+export const GoBackButton = ({ navigation, setStopTime }) => {
+
+  const exec = () => {
+    setStopTime(true);
+    navigation.goBack()
+  }
+
   return (
     <TouchableOpacity
       activeOpacity={0.7}
-      onPress={() => navigation.goBack()}
+      onPress={() => exec()}
       style={{
         position: 'absolute',
         top: StatusBar.currentHeight * 2,

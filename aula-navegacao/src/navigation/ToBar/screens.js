@@ -1,22 +1,22 @@
 import { Icons } from '../../components/Icons';
 import { One } from '../../screens/One';
-import { Two } from '../../screens/Two';
+import { Training } from '../../screens/Training';
 
 export const ToBarTabs = [
   { 
     route: 'One', 
     label: 'One', 
     type: Icons.Ionicons, 
-    activeIcon: 'home', 
-    inActiveIcon: 'home-outline', 
+    activeIcon: 'calendar', 
+    inActiveIcon: 'calendar-outline', 
     component: One 
   },
   { 
-    route: 'Two', 
-    label: 'Two', 
+    route: 'Training', 
+    label: 'Training', 
     type: Icons.Ionicons, 
     activeIcon: 'barbell', 
     inActiveIcon: 'barbell-outline', 
-    component: Two 
+    component: Training 
   },
 ];

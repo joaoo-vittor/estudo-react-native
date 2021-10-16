@@ -1,15 +1,15 @@
 import { StatusBar as BarStatus } from 'expo-status-bar';
 import * as React from 'react';
-import { 
-  StatusBar, 
-  FlatList, 
-  Image, 
-  Animated, 
-  Text, 
-  View, 
-  Dimensions, 
-  StyleSheet, 
-  TouchableOpacity, 
+import {
+  StatusBar,
+  FlatList,
+  Image,
+  Animated,
+  Text,
+  View,
+  Dimensions,
+  StyleSheet,
+  TouchableOpacity,
   Easing,
   SafeAreaViewBase,
   SafeAreaView,
@@ -21,13 +21,13 @@ import faker from 'faker';
 
 faker.seed(10);
 const DATA = [...Array(30).keys()].map((_, i) => {
-    return {
-        key: faker.random.uuid(),
-        image: `https://randomuser.me/api/portraits/${faker.helpers.randomize(['women', 'men'])}/${faker.random.number(60)}.jpg`,
-        name: faker.name.findName(),
-        jobTitle: faker.name.jobTitle(),
-        email: faker.internet.email(),
-    };
+  return {
+    key: faker.random.uuid(),
+    image: `https://randomuser.me/api/portraits/${faker.helpers.randomize(['women', 'men'])}/${faker.random.number(60)}.jpg`,
+    name: faker.name.findName(),
+    jobTitle: faker.name.jobTitle(),
+    email: faker.internet.email(),
+  };
 });
 
 const SPACING = 20;
@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Image 
+      <Image
         source={{ uri: BG_IMG }}
         style={StyleSheet.absoluteFillObject}
         blurRadius={60}
@@ -57,7 +57,7 @@ export default function App() {
           padding: SPACING,
           paddingTop: StatusBar.currentHeight || 42,
         }}
-        
+
         showsVerticalScrollIndicator={false}
         renderItem={({ item, index }) => {
           const inputRange = [
@@ -73,7 +73,7 @@ export default function App() {
           })
 
           return (
-            <Animated.View 
+            <Animated.View
               style={{
                 flexDirection: 'row',
                 padding: SPACING,
@@ -83,7 +83,7 @@ export default function App() {
                 transform: [{ scale }]
               }}
             >
-              <Image 
+              <Image
                 source={{ uri: item.image }}
                 style={{
                   width: AVATAR_SIZE,
